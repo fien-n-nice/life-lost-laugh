@@ -5,11 +5,8 @@ import Body from "./Body";
 import { BODY } from "./Types"
 
 const binTarget = {
-    canDrop({ isMoveValid, isTheLatter }, monitor) {
-        const isOver = monitor.isOver();
-        const position = monitor.getItem().position;
-    
-        return isOver
+    canDrop(props, monitor) {
+      return true
     },
 
     drop({ removeBody, addBody }, monitor) {

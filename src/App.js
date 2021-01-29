@@ -50,18 +50,14 @@ class App extends Component {
     };
 
     addBody = (bodyId, binId) => {
-        this.setState(prevState => ({
-            bin: prevState.bin.map(bin => {
-              bin.id === binId && bin.tiles.unshift({ id: bodyId })
-
-                return bin
-            })
-        }))
+      let bin = this.state.bin
+      this.setState({ bin: bin })
     }
 
 
     render() {
         return (
+            
             <div style={layoutStyle}>
                 <DndProvider backend={HTML5Backend}>
                     <Murder
