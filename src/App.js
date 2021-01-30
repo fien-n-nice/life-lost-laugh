@@ -1,85 +1,153 @@
 import React, { Component } from "react"
-import Murder from "./Murder"
+// import Murder from "./Murder"
+// import Mouse from "./Mouse"
+// import apic from "https://codeliini.fi/wp-content/themes/codeliini/images/drawn_face.png";
 
-import { DndProvider } from "react-dnd"
-import { HTML5Backend } from "react-dnd-html5-backend"
+// import { DndProvider } from "react-dnd"
+// import { HTML5Backend } from "react-dnd-html5-backend"
 
 class App extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            bin: [
-                { id: 1, bodies: [] }
-            ]
+            mouse: [
+                { x: 0, y: 0 }
+            ],
+            clicked: "none"
         }
+
     }
 
-    componentDidMount = () => {
-        const bodies = []
-        for (let id = 1; id <= 1; id++) {
-            bodies.push({ id: id })
-        }
-
+    _onMouseMove(e) {
         this.setState({
-            bin: [
-                { id: 1, bodies: bodies }
+            mouse: [
+                { x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY }
             ]
-        })
+        });
     }
 
-    removeBody = bodyId => {
-        var binId = null
-        this.setState(prevState => {
-            prevState.bin.forEach(bin => {
-                bin.bodies = bin.bodies.filter(body => {
-                    if (body.id === bodyId) {
-                        binId = bin.id
-                        return false
-                    } else {
-                        return true
-                    }
-                })
-            })
+    reply_click(clicked_id) {
 
-            return {
-                bin: prevState.bin
+        console.log(clicked_id)
+        if (this.state.clicked === clicked_id) {
+            this.setState({
+                clicked: "none"
+            })
+            document.getElementById(clicked_id).style.border = "none"
+
+        } else if (this.state.clicked === "ruumis") {
+            if (clicked_id === "roskis") {
+                document.getElementById("ruumis").style.display = "none"
             }
-        })
-        return binId
-    };
 
-    addBody = (bodyId, binId) => {
-        this.setState(prevState => ({
-            bin: prevState.bin.map(bin => {
-              bin.id === binId && bin.tiles.unshift({ id: bodyId })
-
-                return bin
+            this.setState({
+                clicked: "none"
             })
-        }))
+            document.getElementById(clicked_id).style.border = "none"
+
+        } else {
+            this.setState({
+                clicked: clicked_id
+            })
+            document.getElementById(clicked_id).style.border = "2px solid red"
+        }
+
+
     }
+
 
 
     render() {
+        function whereWeHover(e) {
+            // e.target.style.background = 'red';
+            document.getElementById("where-we-at").innerHTML = e.target.id
+        }
+
+        function startMenu() {
+            document.getElementById("credit-screen").style.display = "none"
+            document.getElementById("start-screen").style.display = "block"
+        }
+
+        function startGame() {
+            document.getElementById("start-screen").style.display = "none"
+            document.getElementById("murder-screen").style.display = "block"
+        }
+
+        function startCredits() {
+            document.getElementById("start-screen").style.display = "none"
+            document.getElementById("credit-screen").style.display = "block"
+        }
+
+        const x = this.state.mouse[0].x
+        const y = this.state.mouse[0].y
+
         return (
-            <div style={layoutStyle}>
-                <DndProvider backend={HTML5Backend}>
-                    <Murder
-                        bin={this.state.bin}
-                        removeBody={this.removeBody}
-                        addTile={this.addBody}
+            <div id="mouseScreen" onMouseOver={whereWeHover} onMouseMove={this._onMouseMove.bind(this)}>
+                <section id="start-screen">
+                    <h1>LIFE - LOST - LAUGH?</h1>
+                    <button id="start-game-button" onClick={startGame}>START</button>
+                    <br />
+                    <button id="credit-button" onClick={startCredits}>CREDITS</button>
+                </section>
+
+                <section id="murder-screen">
+                    <img id="tausta" draggable="false" className="unselectable"
+                        src="https://codeliini.fi/wp-content/uploads/2021/01/tausta.png"
+                        alt="new"
                     />
-                </DndProvider>
+                    <img id="taustin" draggable="false" className="unselectable"
+                        src="https://codeliini.fi/wp-content/uploads/2021/01/demotausta.png"
+                        alt="new"
+                    />
+
+                    <div id="roskisplacement">
+                        <img id="roskis-kansi" src="https://codeliini.fi/wp-content/uploads/2021/01/roskis-kansi.png"
+                            alt="roskiksen kansi" />
+                        <img id="roskis" src="https://codeliini.fi/wp-content/uploads/2021/01/roskis-main.png"
+                            alt="roskis" onClick={e => this.reply_click(e.target.id)} />
+                    </div>
+                    <div id="ruumisplacement">
+                        <img id="ruumis" src="https://codeliini.fi/wp-content/uploads/2021/01/ruumis-ref.png"
+                            alt="ruumis" onClick={e => this.reply_click(e.target.id)} />
+                    </div>
+
+                    <div id="mouseStats">
+                        <p id="where-we-at"></p>
+                        <p>x: {x} <br />y: {y}</p>
+                    </div>
+                </section>
+
+                <section id="credit-screen">
+                    <h1>LIFE - LOST - LAUGH?</h1>
+                    <h2>Mady by</h2>
+                    <ul>
+                        <li>em</li>
+                        <li>iid</li>
+                        <li>noora</li>
+                        <li>ots</li>
+                    </ul>
+                    <button id="start-game-button" onClick={startMenu}>BACK TO MENU</button>
+                </section>
+                {/* <img id="taustin" draggable="false" className="unselectable"
+                    src="https://codeliini.fi/wp-content/uploads/2021/01/taustin.png"
+                    alt="new"
+                />
+                <img id="taustempi" draggable="false" className="unselectable"
+                    src="https://codeliini.fi/wp-content/uploads/2021/01/taustempi.png"
+                    alt="new"
+                /> */}
+
             </div>
         )
     }
 }
 
-const layoutStyle = {
-    display: "grid",
-    gridTemplateRows: `
-    200px
-  `
-}
+// const layoutStyle = {
+//     display: "grid",
+//     gridTemplateRows: `
+//     200px
+//   `
+// }
 
 export default App
