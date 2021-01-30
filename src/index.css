@@ -3,6 +3,9 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
 code {
@@ -12,6 +15,9 @@ code {
 #game-area {
     width: 100vw;
     height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
 #game-screen {
@@ -19,7 +25,54 @@ code {
     width: 854px;
     height: 480px;
     align-self: center;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
 }
+
+.side-column-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    /* width: calc((100vh - 480px)/2); */
+    width: calc((100vw - 854px)/2);
+    z-index: 500;
+    background-color: palevioletred;
+}
+
+.side-column-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    /* width: calc((100vh - 480px)/2); */
+    width: calc((100vw - 854px)/2);
+    z-index: 501;
+    background-color: palevioletred;
+}
+
+.side-column-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: calc((100vh - 480px)/2);
+    width: 100vw;
+    z-index: 499;
+    background-color: palevioletred;
+}
+
+.side-column-bottom {
+    position: absolute;
+    top: calc(480px + (100vh - 480px)/2);
+    left: 0;
+    height: calc((100vh - 480px)/2);
+    width: 100vw;
+    z-index: 498;
+    background-color: palevioletred;
+}
+
+
 
 /* .our-bg {
     border: 10px black solid;
@@ -141,5 +194,6 @@ code {
     padding: 1rem;
     font-size: 20px;
     width: 150px;
+    z-index: 600;
 }
 

@@ -81,12 +81,24 @@ class App extends Component {
     }
 
     function moveBody(xc, yc, clickState) {
-      //console.log(clickState)
-      console.log('HEI OLEn ')
-      // calc((100vh - 480px)/2)
-      // window.innerWidth
-      // console.log(xc.toString().concat("px"))
       if (clickState === "ruumis") {
+        if (xc > 800) {
+          xc = 800
+        }
+        if (yc > 450) {
+          yc = 450
+        }
+
+        if (yc > 300) {
+          document.getElementById("ruumis").style.height = "230px"
+        } else if (yc > 200) {
+          document.getElementById("ruumis").style.height = "180px"
+        } else if (yc > 100) {
+          document.getElementById("ruumis").style.height = "125px"
+        } else if (yc > 50) {
+          document.getElementById("ruumis").style.height = "100px"
+        }
+
         document.getElementById("ruumisplacement").style.top = (yc + (window.innerHeight - 480) / 2).toString().concat("px")
         document.getElementById("ruumisplacement").style.left = (xc + (window.innerWidth - 854) / 2).toString().concat("px")
       }
@@ -135,7 +147,7 @@ class App extends Component {
           <CreditScreen
             startMenu={startMenu} />
         </div>
-      </div>
+      </div >
     )
   }
 }
