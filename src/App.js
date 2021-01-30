@@ -49,6 +49,10 @@ class App extends Component {
         document.getElementById("ruumis").style.display = "none"
         return
       }
+      if (clicked_id === "lammikko") {
+        document.getElementById("ruumis").style.display = "none"
+        return
+      }
 
     }
 
@@ -120,7 +124,7 @@ class App extends Component {
                 alt="ruumis" onClick={e => this.reply_click(e.target.id)} />
             </div>
             <div id="lammikkoplacement">
-              <img id="lammikko" src="https://github.com/fien-n-nice/life-lost-laugh/blob/master/png-images/jatelammikko.png?raw=true"
+              <img id="lammikko" src="https://github.com/fien-n-nice/life-lost-laugh/blob/nooran-sekoilut/png-images/jatelammikko.png?raw=true"
                 alt="lammikko" onClick={e => this.reply_click(e.target.id)} />
             </div>
             <div id="mouseStats">

@@ -88,8 +88,8 @@ code {
 
 #lammikko {
   position: absolute;
-    top: calc((100vh - 480px)/2 + (480px - 220px));
-    left: calc((100vw - 854px)/2 + (854px - 250px));
+    top: calc((100vh - 480px)/2 + (480px - 332px));
+    left: calc((100vw - 854px)/2 + (854px - 544px));
     z-index: 1000;
 }
 
