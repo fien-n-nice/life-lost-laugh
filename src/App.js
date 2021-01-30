@@ -77,14 +77,26 @@ class App extends Component {
         }
 
         function moveBody(xc, yc, clickState) {
-            //console.log(clickState)
-            console.log('HEI OLEn ')
-            // calc((100vh - 480px)/2)
-            // window.innerWidth
-            // console.log(xc.toString().concat("px"))
             if (clickState === "ruumis") {
-                document.getElementById("ruumisplacement").style.top = (yc + (window.innerHeight - 480)/2).toString().concat("px")
-                document.getElementById("ruumisplacement").style.left = (xc + (window.innerWidth - 854)/2).toString().concat("px")
+                if (xc > 800) {
+                    xc = 800
+                }
+                if (yc > 450) {
+                    yc = 450
+                }
+
+                if (yc > 300) {
+                    document.getElementById("ruumis").style.height = "230px"
+                } else if (yc > 200) {
+                    document.getElementById("ruumis").style.height = "180px"
+                } else if (yc > 100) {
+                    document.getElementById("ruumis").style.height = "125px"
+                } else if (yc > 50) {
+                    document.getElementById("ruumis").style.height = "100px"
+                }
+
+                document.getElementById("ruumisplacement").style.top = (yc + (window.innerHeight - 480) / 2).toString().concat("px")
+                document.getElementById("ruumisplacement").style.left = (xc + (window.innerWidth - 854) / 2).toString().concat("px")
             }
         }
 
@@ -92,43 +104,43 @@ class App extends Component {
         const y = this.state.mouse[0].y
 
         return (
-          <div>
-            <div id="mouseScreen" onMouseOver={whereWeHover} onMouseMove={this._onMouseMove.bind(this)}>
-                <StartScreen
-                  startGame={startGame}
-                  startCredits={startCredits} />
+            <div>
+                <div id="mouseScreen" onMouseOver={whereWeHover} onMouseMove={this._onMouseMove.bind(this)}>
+                    <StartScreen
+                        startGame={startGame}
+                        startCredits={startCredits} />
 
-                <section id="murder-screen">
-                    <img id="tausta" draggable="false" className="unselectable"
-                        src="https://codeliini.fi/wp-content/uploads/2021/01/tausta.png"
-                        alt="new"
-                    />
+                    <section id="murder-screen">
+                        <img id="tausta" draggable="false" className="unselectable"
+                            src="https://codeliini.fi/wp-content/uploads/2021/01/tausta.png"
+                            alt="new"
+                        />
 
-                    <img id="taustin" draggable="false" //className="unselectable"
-                        src="https://codeliini.fi/wp-content/uploads/2021/01/demotausta.png"
-                        alt="new" onClick={() => moveBody(x, y, this.state.clicked)}
-                    />
+                        <img id="taustin" draggable="false" //className="unselectable"
+                            src="https://codeliini.fi/wp-content/uploads/2021/01/demotausta.png"
+                            alt="new" onClick={() => moveBody(x, y, this.state.clicked)}
+                        />
 
-                    <div id="roskisplacement">
-                        <img id="roskis-kansi" src="https://codeliini.fi/wp-content/uploads/2021/01/roskis-kansi.png"
-                            alt="roskiksen kansi" onClick={e => this.reply_click(e.target.id)} />
-                        <img id="roskis" src="https://codeliini.fi/wp-content/uploads/2021/01/roskis-main.png"
-                            alt="roskis" onClick={e => this.reply_click(e.target.id)} />
-                    </div>
-                    <div id="ruumisplacement">
-                        <img id="ruumis" src="https://codeliini.fi/wp-content/uploads/2021/01/ruumis-ref.png"
-                            alt="ruumis" onClick={e => this.reply_click(e.target.id)} />
-                    </div>
+                        <div id="roskisplacement">
+                            <img id="roskis-kansi" src="https://codeliini.fi/wp-content/uploads/2021/01/roskis-kansi.png"
+                                alt="roskiksen kansi" onClick={e => this.reply_click(e.target.id)} />
+                            <img id="roskis" src="https://codeliini.fi/wp-content/uploads/2021/01/roskis-main.png"
+                                alt="roskis" onClick={e => this.reply_click(e.target.id)} />
+                        </div>
+                        <div id="ruumisplacement">
+                            <img id="ruumis" src="https://codeliini.fi/wp-content/uploads/2021/01/ruumis-ref.png"
+                                alt="ruumis" onClick={e => this.reply_click(e.target.id)} />
+                        </div>
 
-                    <div id="mouseStats">
-                        <p id="where-we-at"></p>
-                        <p>x: {x} <br />y: {y}</p>
-                    </div>
-                </section>
-                <CreditScreen
-                  startMenu={startMenu} />
-            </div>
-            </div>
+                        <div id="mouseStats">
+                            <p id="where-we-at"></p>
+                            <p>x: {x} <br />y: {y}</p>
+                        </div>
+                    </section>
+                    <CreditScreen
+                        startMenu={startMenu} />
+                </div>
+            </div >
         )
     }
 }
