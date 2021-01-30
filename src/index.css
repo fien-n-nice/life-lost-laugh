@@ -42,6 +42,10 @@ code {
 
 #murder-screen {
     display: none;
+    /* overflow: hidden; */
+    /* position: fixed; */
+    width: 100%;
+    height: 100%;
 }
 
 #credit-screen {
@@ -66,7 +70,7 @@ code {
 }
 
 #taustin {
-    z-index: -300;
+    z-index: 2;
 }
 
 #roskis:hover, #ruumis:hover, #roskis-kansi:hover {

@@ -28,29 +28,30 @@ class App extends Component {
     }
 
     reply_click(clicked_id) {
-
-        console.log(clicked_id)
         // if we click something that is clicked, remove border
         if (this.state.clicked === clicked_id) {
             this.setState({
                 clicked: "none"
             })
             document.getElementById(clicked_id).style.border = "none"
+            console.log('Clicked state: ', this.state.clicked)
             return
-            
-        // if nothing is in clicked state
+
+            // if nothing is in clicked state
         } else if (this.state.clicked === "none") {
 
             this.setState({
                 clicked: clicked_id
             })
             document.getElementById(clicked_id).style.border = "2px solid red"
+            console.log('Clicked state: ', this.state.clicked)
             return
         }
 
         if (this.state.clicked === "ruumis") {
             if (clicked_id === "roskis") {
                 document.getElementById("ruumis").style.display = "none"
+                return
             }
 
             // this.setState({
@@ -61,6 +62,8 @@ class App extends Component {
         }
 
     }
+
+
 
     // addBody = (bodyId, binId) => {
     //     let bin = this.state.bin
@@ -90,6 +93,18 @@ class App extends Component {
             document.getElementById("credit-screen").style.display = "block"
         }
 
+        function moveBody(xc, yc, clickState) {
+            //console.log(clickState)
+            console.log('HEI OLEn ')
+            // calc((100vh - 480px)/2)
+            // window.innerWidth
+            // console.log(xc.toString().concat("px"))
+            if (clickState === "ruumis") {
+                document.getElementById("ruumisplacement").style.top = (yc + (window.innerHeight - 480)/2).toString().concat("px")
+                document.getElementById("ruumisplacement").style.left = (xc + (window.innerWidth - 854)/2).toString().concat("px")
+            }
+        }
+
         const x = this.state.mouse[0].x
         const y = this.state.mouse[0].y
 
@@ -108,9 +123,9 @@ class App extends Component {
                         alt="new"
                     />
 
-                    <img id="taustin" draggable="false" className="unselectable"
+                    <img id="taustin" draggable="false" //className="unselectable"
                         src="https://codeliini.fi/wp-content/uploads/2021/01/demotausta.png"
-                        alt="new"
+                        alt="new" onClick={() => moveBody(x, y, this.state.clicked)}
                     />
 
                     <div id="roskisplacement">
