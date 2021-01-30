@@ -4,6 +4,7 @@ import StartScreen from './components/StartScreen'
 import CreditScreen from './components/CreditScreen'
 import StoryScreen from "./components/StoryScreen";
 import Music from './components/Music'
+import ReactAudioPlayer from 'react-audio-player'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -114,14 +115,16 @@ class App extends Component {
     const x = this.state.mouse[0].x
     const y = this.state.mouse[0].y
 
+    
+
     return (
       <div>
 
+         
         <div id="mouseScreen" onMouseOver={whereWeHover} onMouseMove={this._onMouseMove.bind(this)}>
-          <Music />
           <StartScreen
             startStory={startStory}
-            startCredits={startCredits} />
+            startCredits={startCredits} ></StartScreen>
 
           <StoryScreen
             startGame={startGame} />
@@ -159,6 +162,10 @@ class App extends Component {
           <CreditScreen
             startMenu={startMenu} />
         </div>
+
+        
+
+        
       </div >
     )
   }

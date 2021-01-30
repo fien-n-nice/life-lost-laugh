@@ -5,12 +5,12 @@ class Music extends Component {
   render() {
     return (
       <Sound
-      url="whole-song.mp3"
+      url="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/nooran-sekoilut/src/components/whole-song.mp3"
       playStatus={Sound.status.PLAYING}
-      playFromPosition={300 /* in milliseconds */}
-      onLoading={this.handleSongLoading}
-      onPlaying={this.handleSongPlaying}
-      onFinishedPlaying={this.handleSongFinishedPlaying}
+      playFromPosition={1 /* in milliseconds */}
+      onLoading={({ bytesLoaded, bytesTotal }) => console.log(`${bytesLoaded / bytesTotal * 100}% loaded`)}
+      // onPlaying={({ position }) => this.setState({ position })}
+      // onFinishedPlaying={() => this.setState({ playStatus: Sound.status.STOPPED })}
       />
     )
   }
