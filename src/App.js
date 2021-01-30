@@ -53,7 +53,10 @@ class App extends Component {
             document.getElementById(clicked_id).style.border = "2px solid red"
         }
 
-
+    }
+    addBody = (bodyId, binId) => {
+        let bin = this.state.bin
+        this.setState({ bin: bin })
     }
 
 
@@ -96,6 +99,7 @@ class App extends Component {
                         src="https://codeliini.fi/wp-content/uploads/2021/01/tausta.png"
                         alt="new"
                     />
+
                     <img id="taustin" draggable="false" className="unselectable"
                         src="https://codeliini.fi/wp-content/uploads/2021/01/demotausta.png"
                         alt="new"
@@ -129,6 +133,16 @@ class App extends Component {
                     </ul>
                     <button id="start-game-button" onClick={startMenu}>BACK TO MENU</button>
                 </section>
+
+                {/* <div style={layoutStyle}>
+                        <DndProvider backend={HTML5Backend}>
+                            <Murder
+                                bin={this.state.bin}
+                                removeBody={this.removeBody}
+                                addTile={this.addBody}
+                            />
+                        </DndProvider>
+                    </div> */}
                 {/* <img id="taustin" draggable="false" className="unselectable"
                     src="https://codeliini.fi/wp-content/uploads/2021/01/taustin.png"
                     alt="new"
@@ -142,6 +156,7 @@ class App extends Component {
         )
     }
 }
+
 
 // const layoutStyle = {
 //     display: "grid",
