@@ -73,7 +73,7 @@ code {
     z-index: 2;
 }
 
-#roskis:hover, #ruumis:hover, #roskis-kansi:hover {
+#roskis:hover, #ruumis:hover, #roskis-kansi:hover, #lammikko:hover {
     background-color: blueviolet;
 }
 
@@ -85,6 +85,13 @@ code {
     display: grid;
     grid-template-columns: 1fr;
 } */
+
+#lammikko {
+  position: absolute;
+    top: calc((100vh - 480px)/2 + (480px - 220px));
+    left: calc((100vw - 854px)/2 + (854px - 250px));
+    z-index: 1000;
+}
 
 #roskis-kansi {
     position: absolute;
