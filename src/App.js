@@ -2,6 +2,7 @@ import React, { Component } from "react"
 // import apic from "https://codeliini.fi/wp-content/themes/codeliini/images/drawn_face.png";
 import StartScreen from './components/StartScreen'
 import CreditScreen from './components/CreditScreen'
+import StoryScreen from "./components/StoryScreen";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -70,8 +71,13 @@ class App extends Component {
       document.getElementById("start-screen").style.display = "block"
     }
 
-    function startGame() {
+    function startStory() {
       document.getElementById("start-screen").style.display = "none"
+      document.getElementById("story-screen").style.display = "block"
+    }
+
+    function startGame() {
+      document.getElementById("story-screen").style.display = "none"
       document.getElementById("murder-screen").style.display = "block"
     }
 
@@ -111,8 +117,11 @@ class App extends Component {
       <div>
         <div id="mouseScreen" onMouseOver={whereWeHover} onMouseMove={this._onMouseMove.bind(this)}>
           <StartScreen
-            startGame={startGame}
+            startStory={startStory}
             startCredits={startCredits} />
+
+          <StoryScreen
+            startGame={startGame} />
 
           <section id="murder-screen">
             <img id="tausta" draggable="false" className="unselectable"
