@@ -1,11 +1,7 @@
 import React, { Component } from "react"
-// import Murder from "./Murder"
-// import Mouse from "./Mouse"
 // import apic from "https://codeliini.fi/wp-content/themes/codeliini/images/drawn_face.png";
-
-// import { DndProvider } from "react-dnd"
-// import { HTML5Backend } from "react-dnd-html5-backend"
-
+import StartScreen from './components/StartScreen'
+import CreditScreen from './components/CreditScreen'
 class App extends Component {
     constructor(props) {
         super(props);
@@ -53,23 +49,12 @@ class App extends Component {
                 document.getElementById("ruumis").style.display = "none"
             }
 
-            // this.setState({
-            //     clicked: "none"
-            // })
-            // document.getElementById(clicked_id).style.border = "none"
-
         }
 
     }
 
-    // addBody = (bodyId, binId) => {
-    //     let bin = this.state.bin
-    //     this.setState({ bin: bin })
-    // }
-
-
-
     render() {
+
         function whereWeHover(e) {
             // e.target.style.background = 'red';
             document.getElementById("where-we-at").innerHTML = e.target.id
@@ -94,13 +79,11 @@ class App extends Component {
         const y = this.state.mouse[0].y
 
         return (
+          <div>
             <div id="mouseScreen" onMouseOver={whereWeHover} onMouseMove={this._onMouseMove.bind(this)}>
-                <section id="start-screen">
-                    <h1>LIFE - LOST - LAUGH?</h1>
-                    <button id="start-game-button" onClick={startGame}>START</button>
-                    <br />
-                    <button id="credit-button" onClick={startCredits}>CREDITS</button>
-                </section>
+                <StartScreen
+                  startGame={startGame}
+                  startCredits={startCredits} />
 
                 <section id="murder-screen">
                     <img id="tausta" draggable="false" className="unselectable"
@@ -129,48 +112,12 @@ class App extends Component {
                         <p>x: {x} <br />y: {y}</p>
                     </div>
                 </section>
-
-                <section id="credit-screen">
-                    <h1>LIFE - LOST - LAUGH?</h1>
-                    <h2>Mady by</h2>
-                    <ul>
-                        <li>em</li>
-                        <li>iid</li>
-                        <li>noora</li>
-                        <li>ots</li>
-                    </ul>
-                    <button id="start-game-button" onClick={startMenu}>BACK TO MENU</button>
-                </section>
-
-                {/* <div style={layoutStyle}>
-                        <DndProvider backend={HTML5Backend}>
-                            <Murder
-                                bin={this.state.bin}
-                                removeBody={this.removeBody}
-                                addTile={this.addBody}
-                            />
-                        </DndProvider>
-                    </div> */}
-                {/* <img id="taustin" draggable="false" className="unselectable"
-                    src="https://codeliini.fi/wp-content/uploads/2021/01/taustin.png"
-                    alt="new"
-                />
-                <img id="taustempi" draggable="false" className="unselectable"
-                    src="https://codeliini.fi/wp-content/uploads/2021/01/taustempi.png"
-                    alt="new"
-                /> */}
-
+                <CreditScreen
+                  startMenu={startMenu} />
+            </div>
             </div>
         )
     }
 }
-
-
-// const layoutStyle = {
-//     display: "grid",
-//     gridTemplateRows: `
-//     200px
-//   `
-// }
 
 export default App
