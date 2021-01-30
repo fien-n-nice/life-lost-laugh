@@ -3,6 +3,7 @@ import React, { Component } from "react"
 import StartScreen from './components/StartScreen'
 import CreditScreen from './components/CreditScreen'
 import StoryScreen from "./components/StoryScreen";
+import Music from './components/Music'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -115,7 +116,9 @@ class App extends Component {
 
     return (
       <div>
+
         <div id="mouseScreen" onMouseOver={whereWeHover} onMouseMove={this._onMouseMove.bind(this)}>
+          <Music />
           <StartScreen
             startStory={startStory}
             startCredits={startCredits} />
