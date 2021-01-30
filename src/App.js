@@ -30,34 +30,42 @@ class App extends Component {
     reply_click(clicked_id) {
 
         console.log(clicked_id)
+        // if we click something that is clicked, remove border
         if (this.state.clicked === clicked_id) {
             this.setState({
                 clicked: "none"
             })
             document.getElementById(clicked_id).style.border = "none"
+            return
+            
+        // if nothing is in clicked state
+        } else if (this.state.clicked === "none") {
 
-        } else if (this.state.clicked === "ruumis") {
-            if (clicked_id === "roskis") {
-                document.getElementById("ruumis").style.display = "none"
-            }
-
-            this.setState({
-                clicked: "none"
-            })
-            document.getElementById(clicked_id).style.border = "none"
-
-        } else {
             this.setState({
                 clicked: clicked_id
             })
             document.getElementById(clicked_id).style.border = "2px solid red"
+            return
+        }
+
+        if (this.state.clicked === "ruumis") {
+            if (clicked_id === "roskis") {
+                document.getElementById("ruumis").style.display = "none"
+            }
+
+            // this.setState({
+            //     clicked: "none"
+            // })
+            // document.getElementById(clicked_id).style.border = "none"
+
         }
 
     }
-    addBody = (bodyId, binId) => {
-        let bin = this.state.bin
-        this.setState({ bin: bin })
-    }
+
+    // addBody = (bodyId, binId) => {
+    //     let bin = this.state.bin
+    //     this.setState({ bin: bin })
+    // }
 
 
 
@@ -107,7 +115,7 @@ class App extends Component {
 
                     <div id="roskisplacement">
                         <img id="roskis-kansi" src="https://codeliini.fi/wp-content/uploads/2021/01/roskis-kansi.png"
-                            alt="roskiksen kansi" />
+                            alt="roskiksen kansi" onClick={e => this.reply_click(e.target.id)} />
                         <img id="roskis" src="https://codeliini.fi/wp-content/uploads/2021/01/roskis-main.png"
                             alt="roskis" onClick={e => this.reply_click(e.target.id)} />
                     </div>

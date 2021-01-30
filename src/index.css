@@ -73,13 +73,27 @@ code {
     background-color: blueviolet;
 }
 
-#roskisplacement {
+/* #roskisplacement {
     position: absolute;
     top: calc((100vh - 480px)/2 + (480px - 220px));
     left: calc((100vw - 854px)/2 + (854px - 250px));
     z-index: 5;
     display: grid;
     grid-template-columns: 1fr;
+} */
+
+#roskis-kansi {
+    position: absolute;
+    top: calc((100vh - 480px)/2 + (480px - 220px));
+    left: calc((100vw - 854px)/2 + (854px - 250px));
+    z-index: 5;
+}
+
+#roskis {
+    position: absolute;
+    top: calc((100vh - 480px)/2 + (480px - 200px));
+    left: calc((100vw - 854px)/2 + (854px - 250px));
+    z-index: 3;
 }
 
 #ruumisplacement {
