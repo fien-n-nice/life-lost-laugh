@@ -170,6 +170,7 @@ class App extends Component {
                                 alt="roskis" onClick={e => this.reply_click(e.target.id)} />
                         </div>
                         <div id="ruumisplacement">
+
                             <img id="ruumis" src="https://codeliini.fi/wp-content/uploads/2021/01/ruumis-ref.png"
                                 alt="ruumis" onClick={e => this.reply_click(e.target.id)} />
                         </div>

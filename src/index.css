@@ -30,6 +30,101 @@ code {
     overflow: hidden;
 }
 
+#start-life, #start-lost, #start-laugh {
+    position: absolute;
+    top: calc((100vh - 480px)/2);
+    left: calc((100vw - 854px)/2);
+}
+
+#start-life {
+    z-index: 886;
+    opacity: 0;
+    animation: life 7s normal ease-in-out;
+}
+
+#start-lost {
+    z-index: 887;
+    opacity: 0;
+    animation: lost 7s normal ease-in-out;
+
+}
+
+#start-laugh {
+    z-index: 888;
+    opacity: 0;
+    animation: laugh 7s normal ease-in-out;
+
+}
+
+#start-still {
+    z-index: 885;
+}
+
+#start-game-button {
+    position: absolute;
+    top: calc((100vh - 480px)/2 + 66px);
+    left: calc((100vw - 854px)/2 + 750px);
+    z-index: 905;
+}
+
+#credit-button {
+    position: absolute;
+    z-index: 906;
+    top: calc((100vh - 480px)/2 + 300px);
+    left: calc((100vw - 854px)/2 + 50px);
+}
+
+#start-still, #start-game-button, #credit-button {
+    opacity: 1;
+    animation: title 9s normal ease-in-out;
+}
+
+@keyframes life {
+    0%, 10% {
+        opacity: 0
+    }
+    26%, 55% {
+        opacity: 1
+    }
+    56%, 100% {
+        opacity: 0
+    }
+}
+
+@keyframes lost {
+    0%, 40% {
+        opacity: 0
+    }
+    41%, 80% {
+        opacity: 1
+    }
+    81%, 100% {
+        opacity: 0
+    }
+}
+
+@keyframes laugh {
+    0%, 65% {
+        opacity: 0
+    }
+    66%, 99% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+@keyframes title {
+    0%, 80% {
+        opacity: 0
+    }
+    81%, 100% {
+        opacity: 1
+    }
+}
+
+
 .side-column-left {
     position: absolute;
     top: 0;
