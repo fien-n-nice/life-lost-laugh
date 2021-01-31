@@ -119,7 +119,11 @@ class App extends Component {
 
     return (
       <div>
-
+        <audio
+          controls
+          src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/nooran-sekoilut/src/components/whole-song.mp3"
+          autoPlay={true}
+          loop={true} />
          
         <div id="mouseScreen" onMouseOver={whereWeHover} onMouseMove={this._onMouseMove.bind(this)}>
           <StartScreen
