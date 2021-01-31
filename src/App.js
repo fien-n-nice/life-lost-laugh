@@ -2,6 +2,9 @@ import React, { Component } from "react"
 // import apic from "https://codeliini.fi/wp-content/themes/codeliini/images/drawn_face.png";
 import StartScreen from './components/StartScreen'
 import CreditScreen from './components/CreditScreen'
+import StoryScreen from "./components/StoryScreen";
+import Music from './components/Music'
+import ReactAudioPlayer from 'react-audio-player'
 class App extends Component {
     constructor(props) {
         super(props);
@@ -94,6 +97,17 @@ class App extends Component {
         document.getElementById("ruumisplacement").style.top = ((window.innerHeight - 480) / 2 + 200).toString().concat("px")
         document.getElementById("ruumisplacement").style.left = ((window.innerWidth - 854) / 2 + 254).toString().concat("px")
 
+<<<<<<< HEAD
+=======
+    function startStory() {
+      document.getElementById("start-screen").style.display = "none"
+      document.getElementById("story-screen").style.display = "block"
+    }
+
+    function startGame() {
+      document.getElementById("story-screen").style.display = "none"
+      document.getElementById("murder-screen").style.display = "block"
+>>>>>>> nooran-sekoilut
     }
 
     render() {
@@ -147,6 +161,11 @@ class App extends Component {
 
         return (
             <div>
+              <audio
+          controls
+          src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/nooran-sekoilut/src/components/whole-song.mp3"
+          autoPlay={true}
+          loop={true} />
                 <div id="mouseScreen" onMouseOver={whereWeHover} onMouseMove={this._onMouseMove.bind(this)}>
                     <StartScreen
                         startGame={startGame}

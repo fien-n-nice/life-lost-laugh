@@ -1,6 +1,6 @@
 import React from 'react'
 
-const StartScreen = ({ startGame, startCredits }) => {
+const StartScreen = ({ startStory, startCredits }) => {
   const componentStyle = {
     height: '480px',
     width: '854px'
@@ -9,7 +9,7 @@ const StartScreen = ({ startGame, startCredits }) => {
     <div>
       <section id="start-screen" style={componentStyle}>
         <h1>LIFE - LOST - LAUGH?</h1>
-        <button id="start-game-button" onClick={startGame}>START</button>
+        <button id="start-story-button" onClick={startStory}>START</button>
         <br />
         <button id="credit-button" onClick={startCredits}>CREDITS</button>
       </section>
