@@ -246,21 +246,6 @@ class App extends Component {
                             <img id="ruumis" src="https://codeliini.fi/wp-content/uploads/2021/01/ruumis-ref.png"
                                 alt="ruumis" onClick={e => this.reply_click(e.target.id)} />
                         </div>
-                        {/* <img id="jalkaetu" alt="jalka etu" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-jalka-etu.PNG"
-              onClick={e => this.reply_click(e.target.id)} />
-
-            <img id="jalkataka" alt="jalka taka" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-jalka-taka.PNG"
-              onClick={e => this.reply_click(e.target.id)} />
-
-            <img id="paa" alt="paa" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-paa.png"
-              onClick={e => this.reply_click(e.target.id)} />
-
-            <img id="kasivarsiala" alt="kasivarsi ala" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-kasivarsi-ala.PNG"
-              onClick={e => this.reply_click(e.target.id)} />
-
-            <img id="kasivarsiyla" alt="kasivarsi yla" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-kasivarsi-yla.PNG"
-              onClick={e => this.reply_click(e.target.id)} /> */}
-
                         <div id="lammikkoplacement">
                             <img id="lammikko" src="https://github.com/fien-n-nice/life-lost-laugh/blob/nooran-sekoilut/png-images/jatelammikko.png?raw=true"
                                 alt="lammikko" onClick={e => this.reply_click(e.target.id)} />
@@ -272,6 +257,14 @@ class App extends Component {
                         <div id="paloiteltu-ruumis">
                             <img id="paloiteltu" src="https://github.com/fien-n-nice/life-lost-laugh/blob/master/png-images/pilkottu.PNG?raw=true"
                                 alt="paloiteltu ruumis" width="80%" height="80%" onClick={e => this.reply_click(e.target.id)} />
+                        </div>
+                        <div id="pizzaloota-placement">
+                          <img id="pizzalaatikko" src="https://github.com/fien-n-nice/life-lost-laugh/blob/nooran-sekoilut/png-images/pizzalaatikko.png?raw=true"
+                            alt="pizzalaatikko" onClick={e => this.reply_click(e.target.id)} />
+                        </div>
+                        <div id="pullo-placement">
+                          <img id="pullo" src="https://github.com/fien-n-nice/life-lost-laugh/blob/nooran-sekoilut/png-images/pullo.png?raw=true"
+                            alt="pullo" onClick={e => this.reply_click(e.target.id)} />
                         </div>
                         {/* <div id="mouseStats">
                             <p id="where-we-at"></p>
@@ -296,77 +289,3 @@ class App extends Component {
 
 
 export default App
-
-
-    //     const x = this.state.mouse[0].x
-    //     const y = this.state.mouse[0].y
-
-    //     return (
-    //         <div>
-    //             <div id="mouseScreen" onMouseOver={whereWeHover} onMouseMove={this._onMouseMove.bind(this)}>
-    //                 <StartScreen
-    //                     startGame={startGame}
-    //                     startCredits={startCredits} />
-
-    //                 <section id="murder-screen">
-    //                     <img id="tausta" draggable="false" className="unselectable"
-    //                         src="https://codeliini.fi/wp-content/uploads/2021/01/tausta.png"
-    //                         alt="new"
-    //                     />
-
-    //                     <img id="taustin" draggable="false" //className="unselectable"
-    //                         src="https://codeliini.fi/wp-content/uploads/2021/01/demotausta.png"
-    //                         alt="new" onClick={() => moveBody(x, y, this.state.clicked)}
-    //                     />
-
-    //                     <div id="roskisplacement">
-    //                         <img id="roskis-kansi" src="https://codeliini.fi/wp-content/uploads/2021/01/roskis-kansi.png"
-    //                             alt="roskiksen kansi" onClick={e => this.reply_click(e.target.id)} />
-    //                         <img id="roskis" src="https://codeliini.fi/wp-content/uploads/2021/01/roskis-main.png"
-    //                             alt="roskis" onClick={e => this.reply_click(e.target.id)} />
-    //                     </div>
-    //                     <div id="ruumisplacement">
-
-    //                         <img id="ruumis" src="https://codeliini.fi/wp-content/uploads/2021/01/ruumis-ref.png"
-    //                             alt="ruumis" onClick={e => this.reply_click(e.target.id)} />
-    //                     </div>
-    //                     <img id="jalkaetu" alt="jalka etu" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-jalka-etu.PNG"
-    //                         onClick={e => this.reply_click(e.target.id)} />
-
-    //                     <img id="jalkataka" alt="jalka taka" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-jalka-taka.PNG"
-    //                         onClick={e => this.reply_click(e.target.id)} />
-
-    //                     <img id="paa" alt="paa" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-paa.png"
-    //                         onClick={e => this.reply_click(e.target.id)} />
-
-    //                     <img id="kasivarsiala" alt="kasivarsi ala" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-kasivarsi-ala.PNG"
-    //                         onClick={e => this.reply_click(e.target.id)} />
-
-    //                     <img id="kasivarsiyla" alt="kasivarsi yla" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-kasivarsi-yla.PNG"
-    //                         onClick={e => this.reply_click(e.target.id)} />
-
-    //                     <div id="lammikkoplacement">
-    //                         <img id="lammikko" src="https://github.com/fien-n-nice/life-lost-laugh/blob/nooran-sekoilut/png-images/jatelammikko.png?raw=true"
-    //                             alt="lammikko" onClick={e => this.reply_click(e.target.id)} />
-    //                     </div>
-    //                     <div id="mouseStats">
-    //                         <p id="where-we-at"></p>
-    //                         <p>x: {x} <br />y: {y}</p>
-    //                     </div>
-    //                     <div id="thinking-aloud">
-    //                         <p id="think-bubble1"></p>
-    //                         <br />
-    //                         <button id="end-button" onClick={() => this.toEnd()}>Ok</button>
-    //                         <p id="think-bubble2"></p>
-    //                         <button id="start-again-button" onClick={() => this.toBeginning()}>back to beginning</button>
-    //                     </div>
-    //                 </section>
-    //                 <CreditScreen
-    //                     startMenu={startMenu} />
-    //             </div>
-    //         </div >
-    //     )
-    //     document.getElementById("ruumisplacement").style.top = (yc + (window.innerHeight - 480) / 2).toString().concat("px")
-    //     document.getElementById("ruumisplacement").style.left = (xc + (window.innerWidth - 854) / 2).toString().concat("px")
-    //   }
-    // }
