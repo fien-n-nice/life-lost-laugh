@@ -40,6 +40,10 @@ class App extends Component {
             document.getElementById(clicked_id.concat("audio")).play();
         } else if (clicked_id === "paloiteltu-ruumis") {
             document.getElementById(clicked_id.concat("audio")).play();
+        } else if (clicked_id === "pullo") {
+            document.getElementById(clicked_id.concat("audio")).play();
+        } else if (clicked_id === "pizzalaatikko") {
+            document.getElementById(clicked_id.concat("audio")).play();
         }
 
         if (this.state.clicked === clicked_id) {
@@ -230,6 +234,9 @@ class App extends Component {
                 <audio id="lammikkoaudio" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/src/components/lirpssuhiseva.wav"></audio>
                 <audio id="paloiteltu-ruumisaudio" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/src/components/rapina.wav"></audio>
                 <audio id="story-startaudio" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/src/components/naurupitka2.wav"></audio>
+                <audio id="pulloaudio" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/src/components/naurupieni.wav"></audio>
+                <audio id="pizzalaatikkoaudio" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/src/components/hgh.wav"></audio>
+
 
                 
                 <div id="mouseScreen"
