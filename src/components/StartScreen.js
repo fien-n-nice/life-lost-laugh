@@ -1,6 +1,6 @@
 import React from 'react'
 
-const StartScreen = ({ startGame, startCredits }) => {
+const StartScreen = ({ startStory, startCredits }) => {
     const componentStyle = {
         height: '480px',
         width: '854px'
@@ -25,7 +25,7 @@ const StartScreen = ({ startGame, startCredits }) => {
                     src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/title-still.png"
                     alt="still"
                 />
-                <button id="start-game-button" onClick={startGame}>START</button>
+                <button id="start-story-button" onClick={startStory}>START</button>
                 <br />
                 <button id="credit-button" onClick={startCredits}>CREDITS</button>
             </section>

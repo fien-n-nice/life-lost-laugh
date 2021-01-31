@@ -60,7 +60,7 @@ code {
     z-index: 885;
 }
 
-#start-game-button {
+#start-story-button {
     position: absolute;
     top: calc((100vh - 480px)/2 + 66px);
     left: calc((100vw - 854px)/2 + 750px);
@@ -74,7 +74,14 @@ code {
     left: calc((100vw - 854px)/2 + 50px);
 }
 
-#start-still, #start-game-button, #credit-button {
+#musicplayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+#start-still, #start-story-button, #credit-button {
     opacity: 1;
     animation: title 9s normal ease-in-out;
 }

@@ -24,8 +24,13 @@ class App extends Component {
         });
     }
 
+
+
     reply_click(clicked_id) {
         // if we click something that is clicked, remove border
+        var audio = document.getElementById(clicked_id.concat("audio"));
+        audio.play();
+
         if (this.state.clicked === clicked_id) {
             this.setState({
                 clicked: "none"
@@ -156,11 +161,13 @@ class App extends Component {
         }
 
         function startCredits() {
+            console.log('creditseis')
             document.getElementById("start-screen").style.display = "none"
             document.getElementById("credit-screen").style.display = "block"
         }
 
         function startStory() {
+            console.log('MITA')
             document.getElementById("start-screen").style.display = "none"
             document.getElementById("story-screen").style.display = "block"
         }
@@ -188,14 +195,26 @@ class App extends Component {
         const x = this.state.mouse[0].x
         const y = this.state.mouse[0].y
 
+        // function play(clickedObj) {
+
+        // }
+
         return (
             <div>
                 <audio
+                    id="musicplayer"
                     controls
                     src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/nooran-sekoilut/src/components/whole-song.mp3"
                     autoPlay={true}
                     loop={true} />
-                <div id="mouseScreen" onMouseOver={whereWeHover} onMouseMove={this._onMouseMove.bind(this)}>
+
+
+                <audio id="roskisaudio" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/src/components/naurupitka1.wav"></audio>
+                
+                <div id="mouseScreen"
+                    // onMouseOver={whereWeHover}
+                    onMouseMove={this._onMouseMove.bind(this)}
+                >
                     <StartScreen
                         startStory={startStory}
                         startCredits={startCredits} />
@@ -251,10 +270,10 @@ class App extends Component {
                             <img id="paloiteltu" src="https://github.com/fien-n-nice/life-lost-laugh/blob/master/png-images/pilkottu.PNG?raw=true"
                                 alt="paloiteltu ruumis" width="80%" height="80%" onClick={e => this.reply_click(e.target.id)} />
                         </div>
-                        <div id="mouseStats">
+                        {/* <div id="mouseStats">
                             <p id="where-we-at"></p>
                             <p>x: {x} <br />y: {y}</p>
-                        </div>
+                        </div> */}
 
                         <div id="thinking-aloud">
                             <p id="think-bubble1"></p>
