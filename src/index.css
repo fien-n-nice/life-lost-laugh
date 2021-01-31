@@ -235,7 +235,7 @@ code {
     z-index: 2;
 }
 
-#roskis:hover, #ruumis:hover, #roskis-kansi:hover, #lammikko:hover, #saha:hover, #paloiteltu-ruumis:hover {
+#roskis:hover, #ruumis:hover, #roskis-kansi:hover, #lammikko:hover, #saha:hover, #paloiteltu-ruumis:hover, #pizzalaatikko:hover, #pullo:hover {
     background-color: blueviolet;
 }
 
@@ -261,6 +261,21 @@ code {
     left: calc((100vw - 854px)/2 + (854px - 420px));
     z-index: 201;
 }
+
+#pizzalaatikko {
+  position: absolute;
+    top: calc((100vh - 480px)/2 + (480px - 250px));
+    left: calc((100vw - 854px)/2 + (854px - 120px));
+    z-index: 199;
+}
+
+#pullo {
+  position: absolute;
+    top: calc((100vh - 480px)/2 + (480px - 250px));
+    left: calc((100vw - 854px)/2 + (854px - 700px));
+    z-index: 199;
+}
+
 
 #roskis-kansi {
     position: absolute;
