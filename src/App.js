@@ -45,7 +45,7 @@ class App extends Component {
       return
     }
 
-    if (this.state.clicked === "ruumis") {
+    if (this.state.clicked === "ruumis" ) {
       if (clicked_id === "roskis") {
         this.setState({
           clicked: clicked_id
@@ -66,10 +66,47 @@ class App extends Component {
         document.getElementById("ruumis").style.border = "none"
         return
       }
-
     }
 
-  }
+    if (this.state.clicked === "saha") {
+      if (clicked_id === "ruumis") {
+        this.setState({
+          clicked: clicked_id
+        })
+        document.getElementById("ruumis").style.display = "none"
+        document.getElementById("ruumis").style.border = "none"
+        document.getElementById("paloiteltu-ruumis").style.display = "block"
+        this.setState({
+          clicked: "none"
+        })
+      }
+    }
+
+    if (this.state.clicked === "paloiteltu" ) {
+      if (clicked_id === "roskis") {
+        this.setState({
+          clicked: clicked_id
+        })
+        document.getElementById("thinking-aloud").style.display = "block"
+        document.getElementById("think-bubble1").innerText = "SÄÄ kUUlUT ROskIIN!!!!"
+        document.getElementById("ruumis").style.display = "none"
+        document.getElementById("ruumis").style.border = "none"
+        return
+      }
+      if (clicked_id === "lammikko") {
+        this.setState({
+          clicked: clicked_id
+        })
+        document.getElementById("thinking-aloud").style.display = "block"
+        document.getElementById("think-bubble1").innerText = "SYÖVY JO!!!!"
+        document.getElementById("ruumis").style.display = "none"
+        document.getElementById("ruumis").style.border = "none"
+        return
+      }
+    }
+      
+    }
+
 
   toEnd() {
     if (this.state.clicked === "roskis") {
@@ -209,6 +246,14 @@ class App extends Component {
             <div id="lammikkoplacement">
               <img id="lammikko" src="https://github.com/fien-n-nice/life-lost-laugh/blob/nooran-sekoilut/png-images/jatelammikko.png?raw=true"
                 alt="lammikko" onClick={e => this.reply_click(e.target.id)} />
+            </div>
+            <div id="sahaplacement">
+              <img id="saha" src="https://github.com/fien-n-nice/life-lost-laugh/blob/nooran-sekoilut/png-images/saha.png?raw=true"
+                alt="saha" width="100px" height="100px" onClick={e => this.reply_click(e.target.id)} />
+            </div>
+            <div id="paloiteltu-ruumis">
+              <img id="paloiteltu" src="https://github.com/fien-n-nice/life-lost-laugh/blob/master/png-images/pilkottu.PNG?raw=true"
+                alt="paloiteltu ruumis" width="80%" height="80%" onClick={e => this.reply_click(e.target.id)} />
             </div>
             <div id="mouseStats">
               <p id="where-we-at"></p>
