@@ -127,6 +127,7 @@ class App extends Component {
         document.getElementById("start-again-button").style.display = "block"
         document.getElementById("credit-screen").style.display = "none"
         document.getElementById("story-screen").style.display = "none"
+        document.getElementById("paloiteltu-ruumis").style.display = "none"
     }
 
     toBeginning() {
