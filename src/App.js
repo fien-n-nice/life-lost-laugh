@@ -29,8 +29,17 @@ class App extends Component {
     reply_click(clicked_id) {
         // if we click something that is clicked, remove border
         if(clicked_id === "roskis") {
-            var audio = document.getElementById(clicked_id.concat("audio"));
-            audio.play();
+            document.getElementById(clicked_id.concat("audio")).play();
+        } else if (clicked_id === "roskis-kansi") {
+            document.getElementById(clicked_id.concat("audio")).play();
+        } else if (clicked_id === "ruumis") {
+            document.getElementById(clicked_id.concat("audio")).play();
+        } else if (clicked_id === "saha") {
+            document.getElementById(clicked_id.concat("audio")).play();
+        } else if (clicked_id === "lammikko") {
+            document.getElementById(clicked_id.concat("audio")).play();
+        } else if (clicked_id === "paloiteltu-ruumis") {
+            document.getElementById(clicked_id.concat("audio")).play();
         }
 
         if (this.state.clicked === clicked_id) {
@@ -159,18 +168,18 @@ class App extends Component {
         }
 
         function startGame() {
+            document.getElementById("ruumisaudio").play();
             document.getElementById("start-screen").style.display = "none"
             document.getElementById("murder-screen").style.display = "block"
         }
 
         function startCredits() {
-            console.log('creditseis')
             document.getElementById("start-screen").style.display = "none"
             document.getElementById("credit-screen").style.display = "block"
         }
 
         function startStory() {
-            console.log('MITA')
+            document.getElementById("story-startaudio").play();
             document.getElementById("start-screen").style.display = "none"
             document.getElementById("story-screen").style.display = "block"
         }
@@ -209,10 +218,19 @@ class App extends Component {
                     controls
                     src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/nooran-sekoilut/src/components/whole-song.mp3"
                     autoPlay={true}
-                    loop={true} />
+                    loop={true}
+                    volume="0.5"
+                    />
 
 
-                <audio id="roskisaudio" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/src/components/naurupitka1.wav"></audio>
+                <audio id="roskisaudio" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/src/components/ih.wav"></audio>
+                <audio id="roskis-kansiaudio" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/src/components/kansipitka.wav"></audio>
+                <audio id="ruumisaudio" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/src/components/naurutsijehaahee.wav"></audio>
+                <audio id="sahaaudio" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/src/components/hieha.wav"></audio>
+                <audio id="lammikkoaudio" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/src/components/lirpssuhiseva.wav"></audio>
+                <audio id="paloiteltu-ruumisaudio" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/src/components/rapina.wav"></audio>
+                <audio id="story-startaudio" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/src/components/naurupitka2.wav"></audio>
+
                 
                 <div id="mouseScreen"
                     // onMouseOver={whereWeHover}
