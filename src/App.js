@@ -28,8 +28,10 @@ class App extends Component {
 
     reply_click(clicked_id) {
         // if we click something that is clicked, remove border
-        var audio = document.getElementById(clicked_id.concat("audio"));
-        audio.play();
+        if(clicked_id === "roskis") {
+            var audio = document.getElementById(clicked_id.concat("audio"));
+            audio.play();
+        }
 
         if (this.state.clicked === clicked_id) {
             this.setState({
