@@ -81,6 +81,8 @@ class App extends Component {
 
     document.getElementById("end-button").style.display = "none"
     document.getElementById("start-again-button").style.display = "block"
+    document.getElementById("credit-screen").style.display = "none"
+    document.getElementById("story-screen").style.display = "none"
   }
 
   toBeginning() {
@@ -94,6 +96,9 @@ class App extends Component {
     document.getElementById("ruumis").style.display = "block"
     document.getElementById("ruumisplacement").style.top = ((window.innerHeight - 480) / 2 + 200).toString().concat("px")
     document.getElementById("ruumisplacement").style.left = ((window.innerWidth - 854) / 2 + 254).toString().concat("px")
+    document.getElementById("start-again-button").style.display = "none"
+    document.getElementById("end-button").style.display = "block"
+
 
   }
   render() {
@@ -209,6 +214,7 @@ class App extends Component {
               <p id="where-we-at"></p>
               <p>x: {x} <br />y: {y}</p>
             </div>
+
             <div id="thinking-aloud">
               <p id="think-bubble1"></p>
               <br />
