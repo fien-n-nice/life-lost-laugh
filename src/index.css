@@ -203,6 +203,13 @@ code {
     background-color: pink;
 }
 
+#story-screen {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: mediumturquoise;
+}
+
 #tausta, #taustin, #taustempi {
     position: absolute;
     top: calc((100vh - 480px)/2);
@@ -221,7 +228,7 @@ code {
     z-index: 2;
 }
 
-#roskis:hover, #ruumis:hover, #roskis-kansi:hover, #lammikko:hover {
+#roskis:hover, #ruumis:hover, #roskis-kansi:hover, #lammikko:hover, #saha:hover, #paloiteltu-ruumis:hover {
     background-color: blueviolet;
 }
 
@@ -239,6 +246,13 @@ code {
     top: calc((100vh - 480px)/2 + (480px - 332px));
     left: calc((100vw - 854px)/2 + (854px - 544px));
     z-index: 200;
+}
+
+#saha {
+  position: absolute;
+    top: calc((100vh - 480px)/2 + (480px - 150px));
+    left: calc((100vw - 854px)/2 + (854px - 420px));
+    z-index: 201;
 }
 
 #roskis-kansi {
@@ -263,10 +277,18 @@ code {
     display: block;
 }
 
-#paa {
+#paloiteltu-ruumis {
     position: absolute;
-    /* top: 0px;
-    left: 50%; */
+    top: calc((100vh - 480px)/2 + (480px - 260px));
+    left: calc((100vw - 854px)/2 + (854px - 700px));
+    z-index: 700;
+    display: none;
+}
+
+
+
+/* #paa {
+    position: absolute;
     top: calc((100vh - 480px)/2 + (480px - 280px));
     left: calc((100vw - 854px)/2 + (854px - 380px));
     z-index: 900;
@@ -274,12 +296,10 @@ code {
 
 #jalkaetu {
     position: absolute;
-    /* top: 0px;
-    left: 50%; */
     top: calc((100vh - 480px)/2 + (480px - 230px));
     left: calc((100vw - 854px)/2 + (854px - 600px));
     z-index: 902;
-}
+} */
 
 .unselectable {
     user-drag: none;
