@@ -11,10 +11,10 @@ const CreditScreen = ({ startMenu }) => {
       <h1>LIFE - LOST - LAUGH?</h1>
         <h2>Mady by</h2>
           <ul>
-            <li>em</li>
-            <li>iid</li>
-            <li>noora</li>
-            <li>ots</li>
+            <li><b>em</b> - artsy, music, sound effects</li>
+            <li><b>iid</b> - code</li>
+            <li><b>noora</b> - code</li>
+            <li><b>ots</b> - artsy, sound effects</li>
           </ul>
           <button id="start-game-button" onClick={startMenu}>BACK TO MENU</button>
     </section>
