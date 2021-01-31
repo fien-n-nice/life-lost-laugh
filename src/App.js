@@ -2,6 +2,7 @@ import React, { Component } from "react"
 // import apic from "https://codeliini.fi/wp-content/themes/codeliini/images/drawn_face.png";
 import StartScreen from './components/StartScreen'
 import CreditScreen from './components/CreditScreen'
+import StoryScreen from './components/StoryScreen'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -95,130 +96,133 @@ class App extends Component {
     document.getElementById("ruumisplacement").style.left = ((window.innerWidth - 854) / 2 + 254).toString().concat("px")
 
   }
-    render() {
+  render() {
 
-      function whereWeHover(e) {
-        // e.target.style.background = 'red';
-        document.getElementById("where-we-at").innerHTML = e.target.id
-      }
-
-      function startMenu() {
-        document.getElementById("credit-screen").style.display = "none"
-        document.getElementById("start-screen").style.display = "block"
-      }
-
-      function startGame() {
-        document.getElementById("start-screen").style.display = "none"
-        document.getElementById("murder-screen").style.display = "block"
-      }
-
-      function startCredits() {
-        document.getElementById("start-screen").style.display = "none"
-        document.getElementById("credit-screen").style.display = "block"
-      }
-
-      function startStory() {
-        document.getElementById("start-screen").style.display = "none"
-        document.getElementById("story-screen").style.display = "block"
-      }
-
-      function moveBody(xc, yc, clickState) {
-        if (clickState === "ruumis") {
-          if (xc > 800) {
-            xc = 800
-          }
-          if (yc > 450) {
-            yc = 450
-          }
-
-          if (yc > 300) {
-            document.getElementById("ruumis").style.height = "230px"
-          } else if (yc > 200) {
-            document.getElementById("ruumis").style.height = "180px"
-          } else if (yc > 100) {
-            document.getElementById("ruumis").style.height = "125px"
-          } else if (yc > 50) {
-            document.getElementById("ruumis").style.height = "100px"
-          }
-
-          document.getElementById("ruumisplacement").style.top = (yc + (window.innerHeight - 480) / 2).toString().concat("px")
-          document.getElementById("ruumisplacement").style.left = (xc + (window.innerWidth - 854) / 2).toString().concat("px")
-        }
-      }
-
-      const x = this.state.mouse[0].x
-      const y = this.state.mouse[0].y
-
-      return (
-        <div>
-          <audio
-            controls
-            src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/nooran-sekoilut/src/components/whole-song.mp3"
-            autoPlay={true}
-            loop={true} />
-          <div id="mouseScreen" onMouseOver={whereWeHover} onMouseMove={this._onMouseMove.bind(this)}>
-            <StartScreen
-              startGame={startGame}
-              startCredits={startCredits} />
-
-            <section id="murder-screen">
-              <img id="tausta" draggable="false" className="unselectable"
-                src="https://codeliini.fi/wp-content/uploads/2021/01/tausta.png"
-                alt="new"
-              />
-
-              <img id="taustin" draggable="false" //className="unselectable"
-                src="https://codeliini.fi/wp-content/uploads/2021/01/demotausta.png"
-                alt="new" onClick={() => moveBody(x, y, this.state.clicked)}
-              />
-
-              <div id="roskisplacement">
-                <img id="roskis-kansi" src="https://codeliini.fi/wp-content/uploads/2021/01/roskis-kansi.png"
-                  alt="roskiksen kansi" onClick={e => this.reply_click(e.target.id)} />
-                <img id="roskis" src="https://codeliini.fi/wp-content/uploads/2021/01/roskis-main.png"
-                  alt="roskis" onClick={e => this.reply_click(e.target.id)} />
-              </div>
-              <div id="ruumisplacement">
-                <img id="ruumis" src="https://codeliini.fi/wp-content/uploads/2021/01/ruumis-ref.png"
-                  alt="ruumis" onClick={e => this.reply_click(e.target.id)} />
-              </div>
-              <img id="jalkaetu" alt="jalka etu" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-jalka-etu.PNG"
-                onClick={e => this.reply_click(e.target.id)} />
-
-              <img id="jalkataka" alt="jalka taka" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-jalka-taka.PNG"
-                onClick={e => this.reply_click(e.target.id)} />
-
-              <img id="paa" alt="paa" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-paa.png"
-                onClick={e => this.reply_click(e.target.id)} />
-
-              <img id="kasivarsiala" alt="kasivarsi ala" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-kasivarsi-ala.PNG"
-                onClick={e => this.reply_click(e.target.id)} />
-
-              <img id="kasivarsiyla" alt="kasivarsi yla" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-kasivarsi-yla.PNG"
-                onClick={e => this.reply_click(e.target.id)} />
-
-              <div id="lammikkoplacement">
-                <img id="lammikko" src="https://github.com/fien-n-nice/life-lost-laugh/blob/nooran-sekoilut/png-images/jatelammikko.png?raw=true"
-                  alt="lammikko" onClick={e => this.reply_click(e.target.id)} />
-              </div>
-              <div id="mouseStats">
-                <p id="where-we-at"></p>
-                <p>x: {x} <br />y: {y}</p>
-              </div>
-              <div id="thinking-aloud">
-                <p id="think-bubble1"></p>
-                <br />
-                <button id="end-button" onClick={() => this.toEnd()}>Ok</button>
-                <p id="think-bubble2"></p>
-                <button id="start-again-button" onClick={() => this.toBeginning()}>back to beginning</button>
-              </div>
-            </section>
-            <CreditScreen
-              startMenu={startMenu} />
-          </div>
-        </div >
-      )
+    function whereWeHover(e) {
+      // e.target.style.background = 'red';
+      document.getElementById("where-we-at").innerHTML = e.target.id
     }
-  }
 
-  export default App
+    function startMenu() {
+      document.getElementById("credit-screen").style.display = "none"
+      document.getElementById("start-screen").style.display = "block"
+    }
+
+    function startGame() {
+      document.getElementById("start-screen").style.display = "none"
+      document.getElementById("murder-screen").style.display = "block"
+    }
+
+    function startCredits() {
+      document.getElementById("start-screen").style.display = "none"
+      document.getElementById("credit-screen").style.display = "block"
+    }
+
+    function startStory() {
+      document.getElementById("start-screen").style.display = "none"
+      document.getElementById("story-screen").style.display = "block"
+    }
+
+    function moveBody(xc, yc, clickState) {
+      if (clickState === "ruumis") {
+        if (xc > 800) {
+          xc = 800
+        }
+        if (yc > 450) {
+          yc = 450
+        }
+
+        if (yc > 300) {
+          document.getElementById("ruumis").style.height = "230px"
+        } else if (yc > 200) {
+          document.getElementById("ruumis").style.height = "180px"
+        } else if (yc > 100) {
+          document.getElementById("ruumis").style.height = "125px"
+        } else if (yc > 50) {
+          document.getElementById("ruumis").style.height = "100px"
+        }
+
+        document.getElementById("ruumisplacement").style.top = (yc + (window.innerHeight - 480) / 2).toString().concat("px")
+        document.getElementById("ruumisplacement").style.left = (xc + (window.innerWidth - 854) / 2).toString().concat("px")
+      }
+    }
+
+    const x = this.state.mouse[0].x
+    const y = this.state.mouse[0].y
+
+    return (
+      <div>
+        <audio
+          controls
+          src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/nooran-sekoilut/src/components/whole-song.mp3"
+          autoPlay={true}
+          loop={true} />
+        <div id="mouseScreen" onMouseOver={whereWeHover} onMouseMove={this._onMouseMove.bind(this)}>
+          <StartScreen
+            startStory={startStory}
+            startCredits={startCredits} />
+
+          <StoryScreen
+            startGame={startGame} />
+
+          <section id="murder-screen">
+            <img id="tausta" draggable="false" className="unselectable"
+              src="https://codeliini.fi/wp-content/uploads/2021/01/tausta.png"
+              alt="new"
+            />
+
+            <img id="taustin" draggable="false" //className="unselectable"
+              src="https://codeliini.fi/wp-content/uploads/2021/01/demotausta.png"
+              alt="new" onClick={() => moveBody(x, y, this.state.clicked)}
+            />
+
+            <div id="roskisplacement">
+              <img id="roskis-kansi" src="https://codeliini.fi/wp-content/uploads/2021/01/roskis-kansi.png"
+                alt="roskiksen kansi" onClick={e => this.reply_click(e.target.id)} />
+              <img id="roskis" src="https://codeliini.fi/wp-content/uploads/2021/01/roskis-main.png"
+                alt="roskis" onClick={e => this.reply_click(e.target.id)} />
+            </div>
+            <div id="ruumisplacement">
+              <img id="ruumis" src="https://codeliini.fi/wp-content/uploads/2021/01/ruumis-ref.png"
+                alt="ruumis" onClick={e => this.reply_click(e.target.id)} />
+            </div>
+            {/* <img id="jalkaetu" alt="jalka etu" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-jalka-etu.PNG"
+              onClick={e => this.reply_click(e.target.id)} />
+
+            <img id="jalkataka" alt="jalka taka" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-jalka-taka.PNG"
+              onClick={e => this.reply_click(e.target.id)} />
+
+            <img id="paa" alt="paa" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-paa.png"
+              onClick={e => this.reply_click(e.target.id)} />
+
+            <img id="kasivarsiala" alt="kasivarsi ala" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-kasivarsi-ala.PNG"
+              onClick={e => this.reply_click(e.target.id)} />
+
+            <img id="kasivarsiyla" alt="kasivarsi yla" src="https://raw.githubusercontent.com/fien-n-nice/life-lost-laugh/master/png-images/ruumis-kasivarsi-yla.PNG"
+              onClick={e => this.reply_click(e.target.id)} /> */}
+
+            <div id="lammikkoplacement">
+              <img id="lammikko" src="https://github.com/fien-n-nice/life-lost-laugh/blob/nooran-sekoilut/png-images/jatelammikko.png?raw=true"
+                alt="lammikko" onClick={e => this.reply_click(e.target.id)} />
+            </div>
+            <div id="mouseStats">
+              <p id="where-we-at"></p>
+              <p>x: {x} <br />y: {y}</p>
+            </div>
+            <div id="thinking-aloud">
+              <p id="think-bubble1"></p>
+              <br />
+              <button id="end-button" onClick={() => this.toEnd()}>Ok</button>
+              <p id="think-bubble2"></p>
+              <button id="start-again-button" onClick={() => this.toBeginning()}>back to beginning</button>
+            </div>
+          </section>
+          <CreditScreen
+            startMenu={startMenu} />
+        </div>
+      </div >
+    )
+  }
+}
+
+export default App
